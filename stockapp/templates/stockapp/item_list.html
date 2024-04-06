@@ -1,0 +1,41 @@
+{% extends 'stockapp/base.html' %}
+
+{% block content %}
+    <h2 class="mb-4">List of Items</h2>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Cost</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>
+                    <!-- Create a hyperlink for the category -->
+                    <a href="{% url 'update_category' item.category.id %}">
+                        {{ item.category.name }}
+                    </a>
+                </td>
+                <td>{{ item.quantity }}</td>
+                <td>€{{ item.price }}</td>
+                <td>€{{ item.total_price }}</td>
+                <td>
+                    <a href="{% url 'edit_item' item.id %}">Edit</a> |
+                    <a href="{% url 'delete_item_confirm' item.id %}">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No items found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'stockapp/base.html' %}
+
+{% block content %}
+    <h2>Add New Item</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button type="submit" class="btn text-light" style="background-color: #343a40;">Add Item</button>
+    </form>
+{% endblock content %}

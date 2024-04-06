@@ -1,0 +1,76 @@
+{% extends 'stockapp/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <!-- Hero Image Section -->
+    <div class="hero-image" style="background-image: url('{% static 'images/your_hero_image.jpg' %}');">
+        <div class="hero-text">
+            <h1>Welcome to InvenTrack</h1>
+            <p>Your ultimate solution for efficient stock management</p>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>About InvenTrack</h2>
+                    <p>InvenTrack is a state-of-the-art stock management system designed to streamline your inventory processes. With real-time tracking, automated calculations, and a user-friendly interface, managing your inventory has never been easier.</p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Manage Inventory</li>
+                        <li>Easy to Use Interface</li>
+                        <li>Scalable for Businesses of All Sizes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="cta-section bg-dark text-white text-center py-4">
+        <h2>Get Started with InvenTrack</h2>
+        <p>Sign up today and take the first step towards effortless inventory management.</p>
+        <a href="{% url 'signup' %}" class="btn btn-light text-dark">Click Here to Sign Up</a>
+        
+    </div>
+{% endblock %}
+
+<style type="text/css">
+    .hero-image {
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info-section h2 {
+    color: #333;
+}
+
+.cta-section {
+    background-color: #004085;
+}
+
+.cta-section h2 {
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    margin-bottom: 20px;
+}
+
+</style>
